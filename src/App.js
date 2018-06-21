@@ -1,27 +1,15 @@
-import React, { Component } from 'react'
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native'
+import { createStackNavigator, createBottomTabNavigator } from 'react-navigation'
 
 import Home from './Pages/Home'
-import { Colors } from './Themes'
+import MovieDetail from './Pages/MovieDetail'
 
-export default class App extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Home />
-      </View>
-    )
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: Colors.background,
+export default createStackNavigator(
+  {
+    Home,
+    MovieDetail,
   },
-})
+  {
+    initialRouteName: 'Home',
+    headerMode: 'none',
+  }
+)
